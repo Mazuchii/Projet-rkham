@@ -7,11 +7,9 @@ from django.contrib.auth.decorators import login_required
 
 
 def catalog(request):
-    articles = Article.objects.prefetch_related('images', 'ratings').all()
-    paginator = Paginator(articles, 6)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-    return render(request, 'catalog.html', {'page_obj': page_obj})
+    articles = Article.objects.prefetch_related('image').all()  
+    return render(request, 'catalog.html', {'articles': articles})
+
 
 
 def index1(response):

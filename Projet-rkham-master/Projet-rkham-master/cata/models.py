@@ -2,7 +2,7 @@ from django.db import models
 #for ids
 import uuid
 import random
-
+import os
 # Create your models here.
 
 
@@ -57,3 +57,10 @@ class ImageModel(BaseModel):
 
     def __str__(self):
         return self.img_alt
+    def delete(self, *args, **kwargs):
+        if self.image:
+            try:
+                os.remove(self.image.path) 
+            except FileNotFoundError:
+                pass  
+        super().delete(*args, **kwargs)  
