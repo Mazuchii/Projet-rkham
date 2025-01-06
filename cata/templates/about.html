@@ -1,0 +1,78 @@
+{% extends "index1.html" %}
+{% load static %}
+{% block main %}
+<header class="header">
+    <div class="logo">
+        <img src="{% static 'img/logo.jpg' %}" alt="Company Logo">
+    </div>
+    <nav class="nav">
+        <ul>
+            <li><a href="{% url 'index1' %}">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="{% url 'catalog' %}">Catalog</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="actions">
+        <!-- Dark Mode Toggle -->
+        <div class="toggle-container">
+            <input type="checkbox" id="theme-toggle" />
+            <label for="theme-toggle" class="toggle-label">
+                <span class="bulb"></span>
+            </label>
+        </div>
+        {% if request.user.is_authenticated %}
+            <div class="user-info">
+                <p>Welcome, {{ request.user.username }}!</p>
+                <a href="{% url 'logout' %}" class="btn-logout">Logout</a>
+            </div>
+        {% else %}
+            <a href="{% url 'login' %}" class="btn-signin">Sign In</a>
+            <a href="{% url 'register' %}" class="btn-signup">Sign Up</a>
+        {% endif %}
+    </div>
+</header>
+
+<section id="about" class="about">
+    <h2>About Us</h2>
+    <p>We provide the highest quality marble with exceptional service to elevate your living and working spaces.</p>
+</section>
+<section class="videos">
+    <h2>Videos</h2>
+    <div class="video-container">
+        {% for video in videos %}
+        <div class="video-item">
+            <h3>{{ video.name }}</h3>
+            {% if video.description %}
+                <p>{{ video.description }}</p>
+            {% endif %}
+            <video controls>
+                <source src="{{ video.video_file.url }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            {% if video.category %}
+                <p>Category: {{ video.category.name }}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</section>
+<footer class="footer">
+    <div class="footer-links">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#catalog">Catalog</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+    <p>&copy; 2024 Marble Co. All Rights Reserved.</p>
+</footer>
+
+<script>
+    document.querySelectorAll('.star').forEach(star => {
+        new bootstrap.Tooltip(star);
+    });
+</script>
+
+{% endblock %}

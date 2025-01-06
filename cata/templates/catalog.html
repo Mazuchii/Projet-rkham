@@ -1,0 +1,90 @@
+{% extends "index1.html" %}
+{% load static %}
+{% block main %}
+<header class="header">
+    <div class="logo">
+        <img src="{% static 'img/logo.jpg' %}" alt="Company Logo">
+    </div>
+    <nav class="nav">
+        <ul>
+            <li><a href="{% url 'index1' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'catalog' %}">Catalog</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="actions">
+        <!-- Dark Mode Toggle -->
+        <div class="toggle-container">
+            <input type="checkbox" id="theme-toggle" />
+            <label for="theme-toggle" class="toggle-label">
+                <span class="bulb"></span>
+            </label>
+        </div>
+        {% if request.user.is_authenticated %}
+            <div class="user-info">
+                <p>Welcome, {{ request.user.username }}!</p>
+                <a href="{% url 'logout' %}" class="btn-logout">Logout</a>
+            </div>
+        {% else %}
+            <a href="{% url 'login' %}" class="btn-signin">Sign In</a>
+            <a href="{% url 'register' %}" class="btn-signup">Sign Up</a>
+        {% endif %}
+    </div>
+</header>
+
+<section class="catalog">
+    <h2 class="catalog-title">Our Product Catalog</h2>
+    <div class="catalog-grid">
+        {% for article in articles %}
+        <div class="catalog-item">
+            <h3>{{ article.heading }}</h3>
+            {% if article.image %}
+                <img src="{{ article.image.image.url }}" alt="{{ article.image.img_alt }}">
+            {% else %}
+                <p>No image available for this article.</p>
+            {% endif %}
+            <p>{{ article.description }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if articles.has_previous %}
+                <a href="?page=1">&laquo;First</a>
+                <a href="?page={{ articles.previous_page_number }}">Next</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ articles.number }} of {{ articles.paginator.num_pages }}
+            </span>
+    
+            {% if articles.has_next %}
+                <a href="?page={{ articles.next_page_number }}">Next</a>
+                <a href="?page={{ articles.paginator.num_pages }}"> Last&raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+    
+</section>
+
+<footer class="footer">
+    <div class="footer-links">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#catalog">Catalog</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+    <p>&copy; 2024 Marble Co. All Rights Reserved.</p>
+</footer>
+
+<script>
+    document.querySelectorAll('.star').forEach(star => {
+        new bootstrap.Tooltip(star);
+    });
+</script>
+
+{% endblock %}

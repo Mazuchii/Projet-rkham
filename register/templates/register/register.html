@@ -1,0 +1,85 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script defer src="{% static 'js/script.js' %}"></script>
+</head>
+<body>
+    {%block main%}
+    <header class="header">
+        <div class="logo">
+            <img src="{% static 'img/logo.jpg' %}" alt="Company Logo">
+        </div>
+        <div class="toggle-container">
+            <input type="checkbox" id="theme-toggle" />
+            <label for="theme-toggle" class="toggle-label">
+                <span class="bulb"></span>
+            </label>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Create Your Account</h2>
+            <p>Join us today for an exclusive experience.</p><br>
+        </div>
+    </section>
+
+    <section id="register" class="register">
+        <h2>Create Your Account</h2>
+        <p>Join us today for an exclusive experience.</p>
+    
+        <!-- Display error or success messages -->
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    
+        <form action="{% url 'register' %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Full name:</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone_number">Phone Number:</label>
+                <input type="tel" id="phone_number" name="phone_number" placeholder="Enter your phone number" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            
+            
+            <button type="submit" class="btn-submit">Create Account</button>
+        </form>
+    </section>
+    
+    
+
+    <footer class="footer">
+        <div class="footer-links">
+            <ul>
+                <li><a href="{% url 'index1' %}">Home</a></li>
+            </ul>
+        </div>
+        <p>&copy; 2024 Marble Co. All Rights Reserved.</p>
+    </footer>
+    {%endblock%}
+</body>
+</html>

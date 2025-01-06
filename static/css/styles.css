@@ -1,0 +1,878 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #f8f8f8;
+}
+
+.header.dark-mode {
+    background-color: #1e1e1e;
+    border-bottom-color: #444;
+}
+
+.nav ul li a.dark-mode {
+    color: #f8f8f8;
+}
+
+.nav ul li a.dark-mode:hover {
+    background-color: #555;
+}
+
+
+/* Hero Section Dark Mode */
+.hero.dark-mode {
+    color: #f8f8f8;
+}
+
+.hero-overlay.dark-mode {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+}
+
+/* Catalog Section Dark Mode */
+.catalog.dark-mode {
+    background-color: #1e1e1e;
+    color: #f8f8f8;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Footer Dark Mode */
+.footer.dark-mode {
+    background-color: #1e1e1e;
+    color: #f8f8f8;
+}
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-signin, .btn-signup {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-signin {
+    color: #fff;
+    background-color: #007bff;
+}
+
+.btn-signin:hover {
+    background-color: #0056b3;
+}
+
+.btn-signup {
+    color: #007bff;
+    background-color: #fff;
+    border: 2px solid #007bff;
+}
+
+.btn-signup:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-register {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff; /* Button color */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none; /* Remove underline */
+    transition: all 0.3s ease; /* Smooth hover effect */
+    margin-top: 10px;
+}
+
+.btn-register:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+}
+
+
+/* Header styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+}
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-signin, .btn-signup {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-signin {
+    color: #fff;
+    background-color: #007bff;
+}
+
+.btn-signin:hover {
+    background-color: #0056b3;
+}
+
+.btn-signup {
+    color: #007bff;
+    background-color: #fff;
+    border: 2px solid #007bff;
+}
+
+.btn-signup:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-logout {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #ff5733; /* Bright color to stand out */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+.btn-logout:hover {
+    background-color: #c43e1c; /* Slightly darker shade for hover */
+    transform: scale(1.05); /* Subtle zoom effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+.btn-logout:active {
+    background-color: #a32f16; /* Even darker for active state */
+    transform: scale(0.98); /* Slightly smaller on click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow */
+}
+
+
+/* Hover effect */
+.nav ul li a:hover {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #007BFF;
+    transform: scale(2);
+}
+
+/* Hero section */
+.hero {
+    background-image: url('../img/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+    padding: 100px 20px;
+    position: relative;
+}
+
+.hero .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #d4af37;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* Centering the About section with reduced height */
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 50vh; /* Make the height half of the viewport */
+    padding: 20px;
+}
+
+/* Styling h2 and p inside About section */
+.about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+/* Image resizing */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Default logo size */
+.logo img {
+    width: 150px; /* Set a base size for the logo */
+    height: auto; /* Maintain the aspect ratio */
+}
+
+/* Resize logo for smaller screens */
+@media (max-width: 768px) {
+    .logo img {
+        width: 120px; /* Smaller size for mobile or tablet */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        width: 100px; /* Even smaller size for very small screens */
+    }
+}
+
+.register {
+    background: #f4f4f9;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.register h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.register p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border 0.3s ease;
+}
+
+.form-group input:focus {
+    border: 1px solid #6c63ff;
+    outline: none;
+}
+
+.btn-submit {
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.btn-submit:hover {
+    background-color: #5a52d6;
+}
+
+/* Catalog section */
+.catalog {
+    margin: 40px 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.catalog-title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.catalog .carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    width: 100%; /* or set a specific width */
+    max-width: 900px; /* or any fixed value for the carousel's max width */
+    margin: 0 auto;
+}
+
+/* The container that holds the slides */
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease; /* Smooth transition for the carousel */
+    gap: 20px; /* Space between slides */
+}
+
+/* Each individual slide */
+.carousel-slide {
+    flex: 0 0 70%; /* Each slide will take 70% of the carousel's width */
+    text-align: center;
+    transition: transform 0.5s ease, opacity 0.3s ease;
+    position: relative;
+}
+
+/* This div wraps the image and title, centered in each slide */
+.carousel-slide-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-slide a {
+    display: block; /* Makes the entire image clickable */
+    width: auto;
+}
+
+.carousel-slide img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    display: block;
+}
+
+.carousel-slide h3 {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #444;
+}
+
+.carousel-slide p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* To create the preview effect, we need to scale the neighboring slides */
+.carousel-slide.prev,
+.carousel-slide.next {
+    opacity: 0.5; /* Make the previews dimmer */
+    transform: scale(0.8); /* Scale down the previews to make them smaller */
+}
+
+/* Active slide will be fully visible and centered */
+.carousel-slide.active {
+    opacity: 1;
+    transform: scale(1); /* Full scale for the active slide */
+}
+
+/* Navigation buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #d4af37;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background-color: #b9982a;
+    transform: scale(1.1);
+}
+
+.carousel-btn.prev {
+    left: 15px;
+}
+
+.carousel-btn.next {
+    right: 15px;
+}
+
+/* Testimonials */
+.testimonials {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.testimonials .testimonial {
+    margin-bottom: 20px;
+}
+
+/* Contact */
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.contact form input, .contact form textarea, .contact form button {
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.contact form button {
+    background-color: #d4af37;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Footer Links */
+.footer .footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer .footer-links ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.footer .footer-links ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+/* Link Hover Effect */
+.footer .footer-links ul li a:hover {
+    color: #007bff;
+    background-color: #fff;
+    border-color: #007bff;
+    text-shadow: 0 0 5px rgba(0, 123, 255, 0.7);
+}
+
+/* Dark Mode Footer */
+.footer.dark-mode {
+    background-color: #121212;
+    color: #f8f8f8;
+}
+
+/* Dark Mode Footer Links */
+.footer.dark-mode .footer-links ul li a {
+    color: #f8f8f8;
+}
+
+.footer.dark-mode .footer-links ul li a:hover {
+    color: #007bff;
+    background-color: #444;
+    border-color: #007bff;
+    text-shadow: 0 0 5px rgba(0, 123, 255, 0.7);
+}
+
+
+/* Toggle Container */
+.toggle-container {
+    position: relative;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+/* Hide the checkbox */
+#theme-toggle {
+    display: none;
+}
+
+/* Label acts as the toggle button */
+.toggle-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Light Bulb */
+.bulb {
+    width: 20px;
+    height: 20px;
+    background-color: yellow;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 10px yellow;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Light Bulb Filament */
+.bulb::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    width: 10px;
+    height: 10px;
+    background-color: #444;
+    border-radius: 50%;
+}
+
+/* Dark mode styling for the bulb */
+#theme-toggle:checked + .toggle-label .bulb {
+    background-color: gray;
+    box-shadow: none;
+}
+
+/* Dark mode background for the toggle */
+#theme-toggle:checked + .toggle-label {
+    background-color: #333;
+}
+
+/* Form Styles in Dark Mode */
+.contact form.dark-mode input,
+.contact form.dark-mode textarea {
+    background-color: #1e1e1e;
+    color: #f8f8f8;
+    border: 1px solid #444;
+}
+
+.contact form.dark-mode input::placeholder,
+.contact form.dark-mode textarea::placeholder {
+    color: #888;
+}
+
+.contact form.dark-mode button {
+    background-color: #444;
+    color: #f8f8f8;
+    border: 1px solid #555;
+}
+
+.contact form.dark-mode button:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+/* Testimonials in Dark Mode */
+.testimonials.dark-mode {
+    background-color: #1e1e1e;
+    color: #f8f8f8;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+}
+.testimonial {
+    color: #121212;
+}
+.testimonials.dark-mode .testimonial {
+    color: white;
+    border-bottom: 1px solid #444;
+    padding: 10px 0;
+}
+
+/* Button Styles in Dark Mode */
+button.dark-mode,
+input[type="submit"].dark-mode {
+    background-color: #444;
+    color: #f8f8f8;
+    border: 1px solid #555;
+}
+
+button.dark-mode:hover,
+input[type="submit"].dark-mode:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+/* Image and Card Overlays */
+img.dark-mode {
+    filter: brightness(0.8);
+}
+
+.card.dark-mode {
+    background-color: #1e1e1e;
+    color: #f8f8f8;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Carousel Dark Mode */
+.carousel.dark-mode {
+    background-color: #1e1e1e;
+}
+
+.carousel-track.dark-mode {
+    background-color: #121212;
+}
+
+.carousel-btn.dark-mode {
+    background-color: #333;
+    color: #f8f8f8;
+}
+
+.carousel-btn.dark-mode:hover {
+    background-color: #444;
+}
+
+section.dark-mode, 
+article.dark-mode, 
+aside.dark-mode {
+    background-color: #1e1e1e;
+    color: #f8f8f8;
+    border-color: #444;
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 15px;
+}
+
+.catalog-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.catalog-item {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid black; /* Black border */
+    border-radius: 10px; /* Border radius */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Border shadow */
+}
+
+body.dark-mode .catalog-item {
+    background-color: #333;
+    color: #f8f8f8;
+}
+
+body.dark-mode .catalog-item:hover {
+    background-color: #444;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .catalog-item img {
+    filter: brightness(0.8);
+}
+
+@media (max-width: 768px) {
+    .catalog-item {
+        width: 100%;
+    }
+    .catalog-item img {
+        width: 100%;
+    }
+    .hero {
+        padding: 60px 15px;
+    }
+
+    .catalog-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+}
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav ul {
+        flex-direction: column;
+    }
+
+    .catalog-grid {
+        grid-template-columns: repeat(1, 1fr); /* Single column for small phones */
+    }
+
+    .hero {
+        padding: 40px 10px;
+    }
+
+    .btn-signin, .btn-signup {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+
+
+
+.pagination {
+    display: flex;
+    justify-content: center; /* Center the pagination */
+    align-items: center; /* Align items vertically */
+    margin-top: 20px; /* Add spacing above pagination */
+    flex-wrap: wrap; /* Allow wrapping for responsiveness */
+}
+
+.pagination .step-links {
+    display: flex;
+    justify-content: center; /* Center the links */
+    gap: 10px; /* Add spacing between links */
+}
+
+.pagination .step-links a {
+    color: #007bff; /* Link color */
+    text-decoration: none; /* Remove underline */
+    padding: 8px 15px; /* Add padding for better click area */
+    border: 1px solid #ddd; /* Add a border around links */
+    border-radius: 5px; /* Round the edges */
+    background-color: #f9f9f9; /* Light background for links */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: all 0.3s; /* Smooth hover effect */
+}
+
+.pagination .step-links a:hover {
+    background-color: #007bff; /* Highlight background on hover */
+    color: #fff; /* Change text color on hover */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+}
+
+.pagination .step-links .current {
+    padding: 8px 15px; /* Match padding with links */
+    font-weight: bold; /* Highlight current page */
+    color: #333; /* Darker text color */
+    background-color: #e9ecef; /* Subtle gray background */
+    border: 1px solid #ddd; /* Match border with links */
+    border-radius: 5px; /* Rounded edges */
+}
+.videos {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.video-item {
+    width: 90%;
+    max-width: 600px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.video-item h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.video-item p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.video-item video {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
