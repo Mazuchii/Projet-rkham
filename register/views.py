@@ -5,6 +5,8 @@ from django.contrib import messages
 from .models import *
 #INSTALLY pip install django-csp
 #instally pip install pip-audit
+#INstally pip install whitenoise
+#lzma li deployment pip freeze > requirements.txt 
 def register(request):
     if request.method == "POST":
         # Get form data
