@@ -28,7 +28,7 @@ DEBUG = False
 ALLOWED_HOSTS = ['projet-rkham.onrender.com', '127.0.0.1', 'localhost']
 import os
 SUPERUSER_USERNAME = os.getenv('DJANGO_SUPERUSER_USERNAME', 'youness')
-SUPERUSER_EMAIL = os.getenv('DJANGO_SUPERUSER_EMAIL', 'admin@example.com')
+SUPERUSER_EMAIL = os.getenv('DJANGO_SUPERUSER_EMAIL', 'jasserbenhassine1@gmail.com')
 SUPERUSER_PASSWORD = os.getenv('DJANGO_SUPERUSER_PASSWORD', 'securekey12')
 PORT = os.getenv("PORT", "4000")  # Default to 4000 if PORT is not set
 
