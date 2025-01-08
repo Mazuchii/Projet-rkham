@@ -35,10 +35,32 @@
 
 <section class="catalog">
     <h2 class="catalog-title">Our Product Catalog</h2>
+    <div class="filter-section">
+        <form method="get" action="{% url 'catalog' %}" class="filter-form">
+            <div class="form-group">
+                <label for="category" class="form-label">Select Category:</label>
+                <select name="category" id="category" class="form-select">
+                    <option value="">-- Select a Category --</option>
+                    {% for category in categories %}
+                    <option value="{{ category.name }}" {% if category.name == request.GET.category %} selected {% endif %}>
+                        {{ category.name }}
+                    </option>
+                        {% endfor %}
+                </select>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Filter</button>
+                <a href="{% url 'catalog' %}" class="btn btn-secondary">Reset</a>
+            </div>
+        </form>
+        
+    </div>
+    
+    
     <div class="catalog-grid">
         {% for article in articles %}
         <div class="catalog-item">
-            <h3>{{ article.heading }}</h3>
+            <h3>{{ article.heading|default:" " }}</h3>
             {% if article.image %}
                 <img src="{{ article.image.image.url }}" alt="{{ article.image.img_alt }}">
             {% else %}
@@ -53,7 +75,7 @@
         <span class="step-links">
             {% if articles.has_previous %}
                 <a href="?page=1">&laquo;First</a>
-                <a href="?page={{ articles.previous_page_number }}">Next</a>
+                <a href="?page={{ articles.previous_page_number }}">Previous</a>
             {% endif %}
     
             <span class="current">
@@ -62,7 +84,7 @@
     
             {% if articles.has_next %}
                 <a href="?page={{ articles.next_page_number }}">Next</a>
-                <a href="?page={{ articles.paginator.num_pages }}"> Last&raquo;</a>
+                <a href="?page={{ articles.paginator.num_pages }}">Last &raquo;</a>
             {% endif %}
         </span>
     </div>

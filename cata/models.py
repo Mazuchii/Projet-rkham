@@ -3,8 +3,6 @@ from django.db import models
 import uuid
 import random
 import os
-from django.contrib.auth.models import User
-
 # Create your models here.
 
 
@@ -20,8 +18,6 @@ class BaseModel(models.Model):
     class Meta:
         abstract = True
 
-from django.contrib.auth.models import User
-from django.db.models import Avg
 
 class Category(BaseModel):
     name = models.CharField(max_length=100, unique=True, null=True)
@@ -34,6 +30,7 @@ class Article(BaseModel):
     heading = models.CharField(max_length=350, null=True , blank=True)
     text = models.CharField(max_length=100, null=True , blank=True)
     description = models.TextField( null=True , blank=True)
+    category = models.ForeignKey(Category, related_name='articles', on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return self.heading or "Untitled Article"
@@ -64,7 +61,6 @@ class Videomodel(BaseModel):
         super().delete(*args, **kwargs)
 from django.utils.html import format_html
 class ImageModel(BaseModel):
-    category = models.ForeignKey(Category, related_name='image', on_delete=models.CASCADE) 
     article = models.OneToOneField(Article, related_name='image', on_delete=models.CASCADE, null=True, blank=True) 
     image = models.FileField(upload_to='media', max_length=300)
     img_alt = models.CharField(max_length=550, blank=True)
@@ -84,7 +80,7 @@ class ImageModel(BaseModel):
             except FileNotFoundError:
                 pass  
         super().delete(*args, **kwargs)  
-
+from django.contrib.auth.models import User
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     message = models.TextField()

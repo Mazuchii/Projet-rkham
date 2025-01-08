@@ -25,7 +25,21 @@ SECRET_KEY = 'django-insecure-5^z)4=+db_low84caam_2e-0#in6qcz_7yoa^8_wy58)xxnof1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['projet-rkham.onrender.com', '127.0.0.1', 'localhost']
+import os
+DJANGO_SUPERUSER_USERNAME = os.getenv('DJANGO_SUPERUSER_USERNAME', 'admin')
+DJANGO_SUPERUSER_EMAIL = os.getenv('DJANGO_SUPERUSER_EMAIL', 'admin@example.com')
+DJANGO_SUPERUSER_PASSWORD = os.getenv('DJANGO_SUPERUSER_PASSWORD', 'password123')
+PORT = os.getenv("PORT", "4000")  # Default to 4000 if PORT is not set
+
+SECURE_SSL_REDIRECT = False
+SESSION_COOKIE_SECURE = True  # Cookies only sent over HTTPS
+CSRF_COOKIE_SECURE = True    # CSRF token cookie only sent over HTTPS
+SESSION_COOKIE_HTTPONLY = True  # Prevent JavaScript access to session cookies
+CSRF_COOKIE_HTTPONLY = True     # Prevent JavaScript access to CSRF cookies
+SESSION_COOKIE_SAMESITE = 'Strict'  # Restrict cross-site cookie sharing
+CSRF_COOKIE_SAMESITE = 'Strict'
+CSRF_TRUSTED_ORIGINS = ['https://projet-rkham.onrender.com']
 
 
 # Application definition
@@ -40,11 +54,13 @@ INSTALLED_APPS = [
     'cata',
     'register',
 ]
-MEDIA_URL = '/media/'  
+MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -76,13 +92,23 @@ WSGI_APPLICATION = 'catalogue.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+import dj_database_url # type: ignore
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': dj_database_url.config(
+            default='postgresql://cain:lZQMF5KjSB4uJeHbl7DB4SJEweRYWNRQ@dpg-ctv98l0gph6c73et0c7g-a.frankfurt-postgres.render.com/rkham',
+            conn_max_age=600
+        )
+    }
+
 
 
 # Password validation
@@ -130,6 +156,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

@@ -1,11 +1,9 @@
-from django.db.models import Avg
+
 from .models import *
 from django.shortcuts import render , redirect
 from django.core.paginator import Paginator
-from .models import Article
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout as auth_logout
-from .models import Comment
 
 @login_required
 def add_comment(request):
@@ -13,29 +11,35 @@ def add_comment(request):
         message = request.POST.get("message")
         if message:
             Comment.objects.create(user=request.user, message=message)
-        return redirect("index")  # Replace with the name of your home page
-    return redirect("index")
+        return redirect("index1")  # Replace with the name of your home page
+    return redirect("index1")
 
-def catalog(request):
-    articles = Article.objects.prefetch_related('image').all()  
-    return render(request, 'catalog.html', {'articles': articles})
+
 
 
 def about(request):
-    videos = Videomodel.objects.select_related('category').all()  # Fetch all videos with their categories
+    videos = Videomodel.objects.select_related('category').all()  
     return render(request, "about.html", {'videos': videos})
-def index(response):
-    return render(response, "index.html", {})
 
 def index1(response):
     return render(response, "index1.html", {})
 
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.paginator import Paginator, EmptyPage
 
 def catalog(request):
     articles_list = Article.objects.prefetch_related('image').all()
-    paginator = Paginator(articles_list, 2)
+    categories = Category.objects.all() 
 
+    category_name = request.GET.get('category')
+    if category_name:
+        try:
+            selected_category = Category.objects.get(name=category_name)
+            articles_list = articles_list.filter(category=selected_category)  
+        except Category.DoesNotExist:
+            articles_list = Article.objects.none()  
+
+    # Handle pagination
+    paginator = Paginator(articles_list, 12)
     page_number = request.GET.get('page')
 
     try:
@@ -50,7 +54,8 @@ def catalog(request):
     except EmptyPage:
         articles = paginator.page(paginator.num_pages)
 
-    return render(request, 'catalog.html', {'articles': articles})
+    return render(request, 'catalog.html', {'articles': articles, 'categories': categories})
+
 
 
 
@@ -58,4 +63,4 @@ def catalog(request):
 
 def logout(request):
     auth_logout(request)
-    return redirect('index')
+    return redirect('index1')
