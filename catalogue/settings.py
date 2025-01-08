@@ -89,13 +89,23 @@ WSGI_APPLICATION = 'catalogue.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+import dj_database_url # type: ignore
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': dj_database_url.config(
+            default='postgresql://cain:lZQMF5KjSB4uJeHbl7DB4SJEweRYWNRQ@dpg-ctv98l0gph6c73et0c7g-a.frankfurt-postgres.render.com/rkham',
+            conn_max_age=600
+        )
+    }
+
 
 
 # Password validation

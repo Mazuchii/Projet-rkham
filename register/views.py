@@ -6,6 +6,8 @@ from .models import *
 #INSTALLY pip install django-csp
 #instally pip install pip-audit
 #INstally pip install whitenoise
+#INSTALLY pip install psycopg2-binary
+#instally pip install dj-database-url
 #lzma li deployment pip freeze > requirements.txt 
 def register(request):
     if request.method == "POST":
