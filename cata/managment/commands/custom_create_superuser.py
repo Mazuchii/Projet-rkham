@@ -3,7 +3,7 @@ from django.core.management.base import BaseCommand
 import os
 
 class Command(BaseCommand):
-    help = "Create a superuser with environment variables"
+    help = "Create a superuser using environment variables"
 
     def handle(self, *args, **kwargs):
         username = os.getenv('DJANGO_SUPERUSER_USERNAME')
