@@ -23,23 +23,25 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-5^z)4=+db_low84caam_2e-0#in6qcz_7yoa^8_wy58)xxnof1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['projet-rkham.onrender.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['*']
 import os
-DJANGO_SUPERUSER_USERNAME = os.getenv('DJANGO_SUPERUSER_USERNAME', 'admin')
-DJANGO_SUPERUSER_EMAIL = os.getenv('DJANGO_SUPERUSER_EMAIL', 'admin@example.com')
-DJANGO_SUPERUSER_PASSWORD = os.getenv('DJANGO_SUPERUSER_PASSWORD', 'password123')
 PORT = os.getenv("PORT", "4000")  # Default to 4000 if PORT is not set
 
-SECURE_SSL_REDIRECT = False
-SESSION_COOKIE_SECURE = True  # Cookies only sent over HTTPS
-CSRF_COOKIE_SECURE = True    # CSRF token cookie only sent over HTTPS
-SESSION_COOKIE_HTTPONLY = True  # Prevent JavaScript access to session cookies
-CSRF_COOKIE_HTTPONLY = True     # Prevent JavaScript access to CSRF cookies
-SESSION_COOKIE_SAMESITE = 'Strict'  # Restrict cross-site cookie sharing
-CSRF_COOKIE_SAMESITE = 'Strict'
-CSRF_TRUSTED_ORIGINS = ['https://projet-rkham.onrender.com']
+if not DEBUG :
+    SECURE_SSL_REDIRECT = False
+    SESSION_COOKIE_SECURE = True  # Cookies only sent over HTTPS
+    CSRF_COOKIE_SECURE = True    # CSRF token cookie only sent over HTTPS
+    SESSION_COOKIE_HTTPONLY = True  # Prevent JavaScript access to session cookies
+    CSRF_COOKIE_HTTPONLY = True     # Prevent JavaScript access to CSRF cookies
+    SESSION_COOKIE_SAMESITE = 'Strict'  # Restrict cross-site cookie sharing
+    CSRF_COOKIE_SAMESITE = 'Strict'
+    CSRF_TRUSTED_ORIGINS = ['https://projet-rkham.onrender.com']
+else:
+    SECURE_SSL_REDIRECT = False
+    SESSION_COOKIE_SECURE = False
+    CSRF_COOKIE_SECURE = False
 
 
 # Application definition
@@ -128,6 +130,15 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+LOGIN_URL = '/login/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # Replace with your SMTP host
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'mohamedbenyahmed0@gmail.com'
+EMAIL_HOST_PASSWORD = 'cpag enod dhkp drhu'
 
 
 # Internationalization

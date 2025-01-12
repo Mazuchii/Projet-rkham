@@ -10,7 +10,7 @@
             <li><a href="{% url 'index1' %}">Home</a></li>
             <li><a href="{% url 'about' %}">About</a></li>
             <li><a href="{% url 'catalog' %}">Catalog</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="{% url 'index1' %}#contact">Contact</a></li>
         </ul>
     </nav>
     <div class="actions">
@@ -62,7 +62,9 @@
         <div class="catalog-item">
             <h3>{{ article.heading|default:" " }}</h3>
             {% if article.image %}
-                <img src="{{ article.image.image.url }}" alt="{{ article.image.img_alt }}">
+                <a href="{{ article.image.image.url }}" target="_blank">
+                    <img src="{{ article.image.image.url }}" alt="{{ article.image.img_alt }}">
+                </a>
             {% else %}
                 <p>No image available for this article.</p>
             {% endif %}
@@ -70,6 +72,7 @@
         </div>
         {% endfor %}
     </div>
+    
 
     <div class="pagination">
         <span class="step-links">
@@ -94,19 +97,14 @@
 <footer class="footer">
     <div class="footer-links">
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#catalog">Catalog</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="{% url 'index1' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'catalog' %}">Catalog</a></li>
+            <li><a href="{% url 'index1' %}#contact">Contact</a></li>
         </ul>
     </div>
-    <p>&copy; 2024 Marble Co. All Rights Reserved.</p>
+    <p>&copy; 2025 Marble Co. All Rights Reserved.</p>
 </footer>
 
-<script>
-    document.querySelectorAll('.star').forEach(star => {
-        new bootstrap.Tooltip(star);
-    });
-</script>
 
 {% endblock %}

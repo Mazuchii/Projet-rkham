@@ -54,8 +54,11 @@
                 <input type="password" id="password" name="password" placeholder="Enter your password" required>
             </div>
             
-            <button type="submit" class="btn-submit">Create Account</button>
+            <button type="submit" class="btn-submit">Login</button>
         </form>
+        <div class="forgot-password">
+            <a href="{% url 'password_reset' %}" class="btn-forgot-password">Forgot your password?</a>
+        </div>
     </section>
     
     
@@ -64,6 +67,7 @@
         <div class="footer-links">
             <ul>
                 <li><a href="{% url 'index1' %}">Home</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
             </ul>
         </div>
         <p>&copy; 2024 Marble Co. All Rights Reserved.</p>

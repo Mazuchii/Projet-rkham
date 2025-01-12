@@ -10,6 +10,7 @@ class ProfileInline(admin.StackedInline):
 
 class CustomUserAdmin(admin.ModelAdmin):
     inlines = [ProfileInline]
+    search_fields = ['username', 'email'] 
     list_display = ('username', 'email', 'get_phone_number', 'get_full_name', 'is_staff')
     
     def get_phone_number(self, obj):

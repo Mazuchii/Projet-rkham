@@ -8,9 +8,9 @@
     <nav class="nav">
         <ul>
             <li><a href="{% url 'index1' %}">Home</a></li>
-            <li><a href="#about">About</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
             <li><a href="{% url 'catalog' %}">Catalog</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="{% url 'index1' %}#contact">Contact</a></li>
         </ul>
     </nav>
     <div class="actions">
@@ -35,14 +35,14 @@
 
 <section id="about" class="about">
     <h2>About Us</h2>
-    <p>We provide the highest quality marble with exceptional service to elevate your living and working spaces.</p>
+    <p>Nous offrons des marbres d’une qualité incomparable, associés à un service exceptionnel, pour sublimer vos espaces de vie et de travail avec élégance et raffinement.</p>
 </section>
 <section class="videos">
     <h2>Videos</h2>
     <div class="video-container">
         {% for video in videos %}
         <div class="video-item">
-            <h3>{{ video.name }}</h3>
+            <h3>{{ video.name |default:" " }}</h3>
             {% if video.description %}
                 <p>{{ video.description }}</p>
             {% endif %}
@@ -60,10 +60,10 @@
 <footer class="footer">
     <div class="footer-links">
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#catalog">Catalog</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="{% url 'index1' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'catalog' %}">Catalog</a></li>
+            <li><a href="{% url 'index1' %}#contact">Contact</a></li>
         </ul>
     </div>
     <p>&copy; 2024 Marble Co. All Rights Reserved.</p>

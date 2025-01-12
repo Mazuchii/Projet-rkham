@@ -5,7 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Title Goes Here</title>
+    <title>rkham</title>
+    <link rel="icon" href="{% static 'img/logo.jpg' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <script defer src="{% static 'js/script.js' %}"></script>
 </head>
@@ -48,13 +49,13 @@
         <div class="hero-content">
             <h2>Premium Marble <br> for Exquisite<br> Spaces</h2>
             <p>Transform your home with luxurious and elegant marble.</p><br>
-            <a href="#catalog" class="btn">Explore Our Catalog</a>
+            <a href="{% url 'catalog' %}" class="btn">Explore Our Catalog</a>
         </div>
     </section>
 
     <section id="about" class="about">
         <h2>About Us</h2>
-        <p>We provide the highest quality marble with exceptional service to elevate your living and working spaces.</p>
+        <p>Nous offrons des marbres d’une qualité incomparable, associés à un service exceptionnel, pour sublimer vos espaces de vie et de travail avec élégance et raffinement.</p>
     </section>
 
     <section id="catalog" class="catalog">
@@ -101,12 +102,12 @@
     <section id="testimonials" class="testimonials">
         <h2>What Our Customers Say</h2>
         <div class="testimonial">
-            <p>"The marble transformed our living room into a piece of art. Highly recommended!"</p>
-            <h4>- Jane Doe</h4>
+            <p>"Le marbre a totalement transformé notre salon, lui donnant une élégance incroyable. Nous sommes ravis du résultat, merci beaucoup !"</p>
+            <h4>- Youness </h4>
         </div>
         <div class="testimonial">
-            <p>"Exceptional quality and service. The black marble is stunning."</p>
-            <h4>- John Smith</h4>
+            <p>"Une qualité et un service exceptionnels. Le marbre noir est tout simplement magnifique."</p>
+            <h4>- jasser </h4>
         </div>
     </section>
 
@@ -126,7 +127,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#catalog">Catalog</a></li>
-                <li><a href="#contact">Contact</a></li>
+
             </ul>
         </div>
         <p>&copy; 2024 Marble Co. All Rights Reserved.</p>
