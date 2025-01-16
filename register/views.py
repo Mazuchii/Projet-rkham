@@ -22,7 +22,7 @@ def register(request):
             messages.error(request, "Username is already taken.")
         elif User.objects.filter(email=email).exists():
             messages.error(request, "Email is already registered.")
-        elif User.objects.filter(phone_number=phone_number).exists():
+        elif Profile.objects.filter(phone_number=phone_number).exists():
             messages.error(request, "phone_number is already registered.")
         else:
             # Create a new user
