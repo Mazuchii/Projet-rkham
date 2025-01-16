@@ -25,9 +25,12 @@ SECRET_KEY = 'django-insecure-5^z)4=+db_low84caam_2e-0#in6qcz_7yoa^8_wy58)xxnof1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [    
+    '127.0.0.1',
+    'localhost',
+    '6rq5gcq8-4000.euw.devtunnels.ms' ]
 import os
-PORT = os.getenv("PORT", "4000")  # Default to 4000 if PORT is not set
+
 
 if not DEBUG :
     SECURE_SSL_REDIRECT = False
@@ -37,12 +40,26 @@ if not DEBUG :
     CSRF_COOKIE_HTTPONLY = True     # Prevent JavaScript access to CSRF cookies
     SESSION_COOKIE_SAMESITE = 'Strict'  # Restrict cross-site cookie sharing
     CSRF_COOKIE_SAMESITE = 'Strict'
-    CSRF_TRUSTED_ORIGINS = ['https://projet-rkham.onrender.com']
+    CSRF_TRUSTED_ORIGINS = ['https://6rq5gcq8-4000.euw.devtunnels.ms' ,'https://projet-rkham.onrender.com']
 else:
     SECURE_SSL_REDIRECT = False
     SESSION_COOKIE_SECURE = False
     CSRF_COOKIE_SECURE = False
+    CSRF_TRUSTED_ORIGINS = ['https://6rq5gcq8-4000.euw.devtunnels.ms' ,'https://projet-rkham.onrender.com']
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'DEBUG',
+    },
+}
 
 # Application definition
 
